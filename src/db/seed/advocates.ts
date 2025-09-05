@@ -39,6 +39,15 @@ const randomSpecialty = () => {
 
 const advocateData = [
   {
+    firstName: "Adam",
+    lastName: "Rodriguez",
+    city: "Titusville",
+    degree: "BA",
+    specialties: ["Senior Software Engineer"],
+    yearsOfExperience: 10,
+    phoneNumber: 7184836420,
+  },
+  {
     firstName: "John",
     lastName: "Doe",
     city: "New York",

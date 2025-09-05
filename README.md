@@ -33,6 +33,10 @@ docker compose up -d
 ```bash
 npx drizzle-kit push
 ```
+or
+```bash
+DATABASE_URL=postgres://postgres:postgres@localhost:5432/solaceassignment npx drizzle-kit push
+```
 
 4. Seed the database
 

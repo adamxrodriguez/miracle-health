@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+ 
+:root {
+  --ring: 36 95% 44%;
+}
+
+html, body { height: 100%; }
+
