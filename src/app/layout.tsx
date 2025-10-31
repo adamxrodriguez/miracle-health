@@ -2,13 +2,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import SolaceFooter from "../components/SolaceFooter";
+import MiracleFooter from "../components/MiracleFooter";
+import { ErrorBoundary } from "../components/ErrorBoundary";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Solace Candidate Assignment",
-  description: "Show us what you got",
+  title: "Miracle Health Providers App",
+  description: "Find the right health care advocate for your needs",
 };
 
 export default function RootLayout({
@@ -16,10 +17,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="bg-white text-slate-800 antialiased">{children}
-      <SolaceFooter className="mt-20" />
+      <body className="bg-white text-slate-800 antialiased">
+        <ErrorBoundary>
+          {children}
+          <MiracleFooter className="mt-20" />
+        </ErrorBoundary>
       </body>
-        
     </html>
   );
 }

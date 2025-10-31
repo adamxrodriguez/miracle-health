@@ -37,7 +37,7 @@ function ButtonLike({
   return base;
 }
 
-export type SolaceCtaCardProps = {
+export type MiracleCtaCardProps = {
   eyebrow?: string;
   title?: ReactNode;
   subtitle?: ReactNode;
@@ -50,7 +50,7 @@ export type SolaceCtaCardProps = {
   className?: string;
 };
 
-export default function SolaceCtaCard({
+export default function MiracleCtaCard({
   eyebrow = "WE'RE HERE FOR YOU",
   title = <>No Matter What You Need</>,
   subtitle = (
@@ -66,7 +66,7 @@ export default function SolaceCtaCard({
   secondaryHref,
   onSecondaryClick,
   className = "",
-}: SolaceCtaCardProps) {
+}: MiracleCtaCardProps) {
   return (
     <section
       role="region"

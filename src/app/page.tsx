@@ -1,40 +1,12 @@
 "use client";
-import { useEffect, useMemo, useState } from "react";
-import SolaceCtaCard from "../components/SolaceCtaCard";
-
-// Types for stronger DX
-export type Advocate = {
-  id?: string | number;
-  firstName: string;
-  lastName: string;
-  city: string;
-  degree: string;
-  specialties: string[];
-  yearsOfExperience: string | number;
-  phoneNumber: string;
-};
+import { useMemo, useState } from "react";
+import MiracleCtaCard from "../components/MiracleCtaCard";
+import { useAdvocates } from "../lib/hooks/useAdvocates";
+import type { Advocate } from "../lib/api";
 
 export default function Home() {
-  const [advocates, setAdvocates] = useState<Advocate[]>([]);
+  const { advocates, isLoading, error } = useAdvocates();
   const [query, setQuery] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const load = async () => {
-      try {
-        setIsLoading(true);
-        const res = await fetch("/api/advocates");
-        const json = await res.json();
-        setAdvocates(json.data || []);
-      } catch (e: any) {
-        setError(e?.message ?? "Failed to load advocates");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    load();
-  }, []);
 
   // Case-insensitive match across multiple fields
   const filtered = useMemo(() => {
@@ -70,7 +42,7 @@ export default function Home() {
             <div className="mt-6 flex flex-col items-center justify-center gap-1 sm:flex-row">
               <div className="flex items-center gap-2 text-emerald-100">
                 <span className="text-sm">
-                  Solace Advocates are covered by your
+                  Miracle Health Providers are covered by your
                 </span>
               </div>
               <div className="flex items-center gap-1 text-emerald-100">
@@ -109,7 +81,7 @@ export default function Home() {
             <div className="grid h-12 w-28 place-items-center    shadow-emerald-200/50">
               <img
                 src="/Solace.svg"
-                alt="Solace"
+                alt="Miracle"
                 className="h-8 w-auto"
                 style={{
                   filter:
@@ -122,7 +94,7 @@ export default function Home() {
         </header>
         <div>
           <h1 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-            Solace Advocates
+            Miracle Health Providers
           </h1>
           <p className="mt-1 mb-3 text-sm text-slate-600">
             Find the right advocate by name, city, degree, specialty, or years
@@ -131,27 +103,38 @@ export default function Home() {
         </div>
 
         {/* Search */}
-        <section className="mb-6 rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm backdrop-blur sm:p-6">
+        <section 
+          className="mb-6 rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm backdrop-blur sm:p-6"
+          aria-label="Search advocates directory"
+        >
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <div className="relative w-full sm:max-w-xl">
+              <label htmlFor="advocate-search" className="sr-only">
+                Search advocates by name, city, degree, specialty, or years of experience
+              </label>
               <input
+                id="advocate-search"
+                type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search advocates…"
                 className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 pr-10 text-slate-900 placeholder:text-slate-400 shadow-sm outline-none transition focus:border-green-800 focus:ring-4 focus:ring-green-600"
                 aria-label="Search advocates"
+                aria-describedby="search-status"
+                aria-live="polite"
               />
               {query ? (
                 <button
                   onClick={clearQuery}
-                  className="absolute inset-y-0 right-0 mr-2 grid place-items-center rounded-lg px-2 text-slate-500 hover:text-slate-700"
+                  type="button"
+                  className="absolute inset-y-0 right-0 mr-2 grid place-items-center rounded-lg px-2 text-slate-500 hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-green-600"
                   aria-label="Clear search"
                 >
                   ×
                 </button>
               ) : null}
             </div>
-            <div className="text-sm text-slate-600">
+            <div id="search-status" className="text-sm text-slate-600" aria-live="polite">
               {query ? (
                 <span>
                   Searching for:{" "}
@@ -177,17 +160,23 @@ export default function Home() {
               <p className="text-sm">{error}</p>
             </div>
           ) : filtered.length === 0 ? (
-            <div className="rounded-2xl border border-slate-200 bg-white/70 p-10 text-center text-slate-600 shadow-sm">
+            <div 
+              className="rounded-2xl border border-slate-200 bg-white/70 p-10 text-center text-slate-600 shadow-sm"
+              role="status"
+              aria-live="polite"
+            >
               <p className="text-base font-medium">
-                No advocates match “{query}”.
+                No advocates match "{query}".
               </p>
               <p className="mt-1 text-sm">
                 Try a different name, city, degree, specialty or years of
                 experience.
               </p>
               <button
+                type="button"
                 onClick={clearQuery}
-                className="mt-4 inline-flex items-center rounded-lg bg-yellow-500 px-4 py-2 text-sm font-medium text-black shadow hover:bg-gradient-to-r hover:from-yellow-500 hover:to-emerald-600 transition-all duration-100"
+                className="mt-4 inline-flex items-center rounded-lg bg-yellow-500 px-4 py-2 text-sm font-medium text-black shadow hover:bg-gradient-to-r hover:from-yellow-500 hover:to-emerald-600 transition-all duration-100 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2"
+                aria-label="Reset search and show all advocates"
               >
                 Reset search
               </button>
@@ -198,7 +187,7 @@ export default function Home() {
         </section>
 
         <div className="mt-10 ">
-        <SolaceCtaCard
+        <MiracleCtaCard
           eyebrow="I AM HERE FOR YOU"
           title="No Matter What You Need"
           subtitle="Give me a call or write me an email anytime. I will help you every step of the way."
@@ -212,7 +201,7 @@ export default function Home() {
         {/* Footer */}
         <footer className="mt-10 border-t border-slate-200 pt-6 text-xs text-slate-500">
           <p>
-            © {new Date().getFullYear()} Solace Health. All rights reserved.
+            © {new Date().getFullYear()} Miracle Health Providers App. All rights reserved.
           </p>
         </footer>
       </div>
@@ -223,8 +212,12 @@ export default function Home() {
 function DirectoryTable({ advocates }: { advocates: Advocate[] }) {
   return (
     <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow">
-      <div className="max-h-[70vh] overflow-auto">
-        <table className="min-w-full table-fixed border-collapse">
+      <div className="max-h-[70vh] overflow-auto" role="region" aria-label="Advocates directory table">
+        <table 
+          className="min-w-full table-fixed border-collapse"
+          role="table"
+          aria-label="Health care advocates directory"
+        >
           <thead className="sticky top-0 z-10 bg-slate-50/95 backdrop-blur">
             <tr className="text-left text-xs uppercase tracking-wider text-slate-600">
               <Th className="w-36">First Name</Th>
@@ -240,18 +233,22 @@ function DirectoryTable({ advocates }: { advocates: Advocate[] }) {
             {advocates.map((a, idx) => (
               <tr
                 key={a.id ?? `${a.firstName}-${a.lastName}-${idx}`}
-                className="hover:bg-emerald-50/40"
+                className="hover:bg-emerald-50/40 focus-within:bg-emerald-50/40"
+                tabIndex={0}
+                role="row"
+                aria-label={`${a.firstName} ${a.lastName}, ${a.degree} in ${a.city}`}
               >
                 <Td>{a.firstName}</Td>
                 <Td>{a.lastName}</Td>
                 <Td>{a.city}</Td>
                 <Td>{a.degree}</Td>
                 <Td>
-                  <div className="flex flex-wrap gap-1.5 py-1">
+                  <div className="flex flex-wrap gap-1.5 py-1" role="list" aria-label="Specialties">
                     {(a.specialties || []).map((s, i) => (
                       <span
                         key={`${s}-${i}`}
                         className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-800"
+                        role="listitem"
                       >
                         {s}
                       </span>
@@ -266,7 +263,8 @@ function DirectoryTable({ advocates }: { advocates: Advocate[] }) {
                 <Td>
                   <a
                     href={`tel:${a.phoneNumber}`}
-                    className="text-emerald-700 underline decoration-emerald-300 underline-offset-2 hover:text-emerald-800"
+                    className="text-emerald-700 underline decoration-emerald-300 underline-offset-2 hover:text-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2 rounded"
+                    aria-label={`Call ${a.firstName} ${a.lastName} at ${a.phoneNumber}`}
                   >
                     {a.phoneNumber}
                   </a>
@@ -313,7 +311,8 @@ function Spinner() {
     <svg
       className="h-6 w-6 animate-spin text-emerald-600"
       viewBox="0 0 24 24"
-      aria-hidden
+      aria-hidden="true"
+      aria-label="Loading"
     >
       <circle
         className="opacity-25"

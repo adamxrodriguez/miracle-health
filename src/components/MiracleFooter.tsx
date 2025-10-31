@@ -10,7 +10,7 @@ export type FooterLink = {
 };
 export type FooterColumn = { heading: string; links: FooterLink[] };
 
-export type SolaceFooterProps = {
+export type MiracleFooterProps = {
   brandName?: string;
   columns?: FooterColumn[];
   phone?: string;
@@ -70,14 +70,14 @@ export const DEFAULT_SPECIALTIES = [
   { label: "New Diagnosis", href: "/new-diagnosis" },
 ] as const;
 
-export default function SolaceFooter({
-  brandName = "Find Solace, Inc.",
+export default function MiracleFooter({
+  brandName = "Find Miracle, Inc.",
   columns,
   phone = "(240) 693-3281",
-  email = "support@solace.health",
+  email = "support@miracle.health",
   address = "123 Palm Ave, Jacksonville, FL",
   className = "",
-}: SolaceFooterProps) {
+}: MiracleFooterProps) {
   const HIPAApic = "/HIPAA.png";
   const Partnerpic = "/partner.png";
 
@@ -130,7 +130,7 @@ export default function SolaceFooter({
           <div>
             <h3 className=" font-semibold">Our Mission</h3>
             <p className="mt-4 max-w-md text-emerald-50/90">
-              Solace&apos;s mission is to empower patients, improve outcomes,
+              Miracle&apos;s mission is to empower patients, improve outcomes,
               and restore the promise of the U.S. healthcare system.
             </p>
             <div className="mt-6 inline-flex items-center  rounded-xl   ">
@@ -150,9 +150,9 @@ export default function SolaceFooter({
                 />
                 <a
                   className="hover:text-white"
-                  href="mailto:hello@solace.health"
+                  href="mailto:hello@miracle.health"
                 >
-                  hello@solace.health
+                  hello@miracle.health
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -225,9 +225,9 @@ export default function SolaceFooter({
                 </div>
                 <a
                   className="mt-1 inline-block hover:text-white"
-                  href="mailto:recruiting@solace.health"
+                  href="mailto:recruiting@miracle.health"
                 >
-                  recruiting@solace.health
+                  recruiting@miracle.health
                 </a>
               </li>
               <li>
@@ -241,9 +241,9 @@ export default function SolaceFooter({
                 </div>
                 <a
                   className="mt-1 inline-block hover:text-white"
-                  href="mailto:advocate@solace.health"
+                  href="mailto:advocate@miracle.health"
                 >
-                  advocate@solace.health
+                  advocate@miracle.health
                 </a>
               </li>
             </ul>
@@ -256,7 +256,7 @@ export default function SolaceFooter({
   return (
     <footer
       className={`relative mt-12 bg-[#173D36] text-white ${className}`}
-      aria-label="SOLACE HEALTH Site footer"
+      aria-label="MIRACLE HEALTH Site footer"
     >
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Brand + contact */}
@@ -265,7 +265,7 @@ export default function SolaceFooter({
             <div className="grid h-12 w-28 place-items-center    shadow-emerald-200/50">
               <img
                 src="/Solace.svg"
-                alt="Solace"
+                alt="Miracle"
                 className="h-5 w-auto"
                 style={{
                   filter:
