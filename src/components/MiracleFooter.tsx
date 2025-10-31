@@ -264,7 +264,7 @@ export default function MiracleFooter({
           <div className="flex items-center gap-3 mb-2">
             <div className="grid h-12 w-28 place-items-center    shadow-emerald-200/50">
               <img
-                src="/Solace.svg"
+                src="/Miracle.svg"
                 alt="Miracle"
                 className="h-5 w-auto"
                 style={{

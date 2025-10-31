@@ -1,8 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import SolaceFooter from "./SolaceFooter";
+import MiracleFooter from "./MiracleFooter";
 
-describe("SolaceFooter", () => {
+describe("MiracleFooter", () => {
   it("renders with default props", () => {
     render(<MiracleFooter />);
 
@@ -28,7 +28,7 @@ describe("SolaceFooter", () => {
   it("has proper ARIA label", () => {
     render(<MiracleFooter />);
 
-    const footer = screen.getByLabelText(/SOLACE HEALTH Site footer/i);
+    const footer = screen.getByLabelText(/MIRACLE HEALTH Site footer/i);
     expect(footer).toBeInTheDocument();
   });
 });

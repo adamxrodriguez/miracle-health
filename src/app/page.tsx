@@ -80,7 +80,7 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <div className="grid h-12 w-28 place-items-center    shadow-emerald-200/50">
               <img
-                src="/Solace.svg"
+                src="/Miracle.svg"
                 alt="Miracle"
                 className="h-8 w-auto"
                 style={{
