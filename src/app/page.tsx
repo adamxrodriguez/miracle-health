@@ -78,11 +78,11 @@ export default function Home() {
         {/* Header */}
         <header className="mb-8 flex flex-col items-start gap-6 sm:mb-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-4">
-            <div className="grid h-12 w-28 place-items-center    shadow-yellow-200/50">
+            <div className="grid h-22 w-40 place-items-center    shadow-yellow-200/50">
               <img
                 src="/Miracle.svg"
                 alt="Miracle"
-                className="h-8 w-auto"
+                className="h-18 w-auto"
                 style={{
                   filter:
                     "brightness(0) saturate(100%) invert(75%) sepia(98%) saturate(7491%) hue-rotate(359deg) brightness(102%) contrast(105%)",
