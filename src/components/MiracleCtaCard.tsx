@@ -71,10 +71,10 @@ export default function MiracleCtaCard({
     <section
       role="region"
       aria-label="Support call to action"
-      className={`relative overflow-hidden rounded-3xl border border-white/70 bg-[#173D36] shadow-[0_10px_30px_rgba(16,24,40,.18)] ${className}`}
+      className={`relative overflow-hidden rounded-3xl border border-white/70 bg-[#6B21A8] shadow-[0_10px_30px_rgba(107,33,168,.18)] ${className}`}
     >
       {/* inner highlight border */}
-      <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-emerald-900/40" />
+      <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-purple-900/40" />
 
       {/* Decorative curves */}
       <svg
@@ -108,7 +108,7 @@ export default function MiracleCtaCard({
           <h2 className="mt-2 font-serif text-3xl leading-tight text-white sm:text-4xl">
             {title}
           </h2>
-          <p className="mt-3 max-w-2xl text-base text-emerald-50/90">
+          <p className="mt-3 max-w-2xl text-base text-yellow-50/90">
             {subtitle}
           </p>
         </div>
@@ -129,7 +129,7 @@ export default function MiracleCtaCard({
           <ButtonLike
             href={secondaryHref}
             onClick={onSecondaryClick}
-            className="inline-flex min-w-[180px] items-center justify-center rounded-xl border border-white/30 bg-[#275E55] px-6 py-3 text-base font-semibold text-white shadow-[0_6px_18px_rgba(2,44,34,.25)] ring-1 ring-black/0 hover:bg-[#2B6A60]"
+            className="inline-flex min-w-[180px] items-center justify-center rounded-xl border border-white/30 bg-purple-700 px-6 py-3 text-base font-semibold text-white shadow-[0_6px_18px_rgba(126,34,206,.25)] ring-1 ring-black/0 hover:bg-purple-600"
             aria-label={
               typeof secondaryText === "string"
                 ? secondaryText

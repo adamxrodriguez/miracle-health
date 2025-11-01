@@ -65,7 +65,7 @@ docker compose up -d
 
 ```bash
 # Database is auto-created by docker-compose, but you can verify:
-psql -h localhost -U postgres -c "CREATE DATABASE solaceassignment;"
+psql -h localhost -U postgres -c "CREATE DATABASE miracleassignment;"
 ```
 
 3. **Run migrations:**
@@ -73,7 +73,7 @@ psql -h localhost -U postgres -c "CREATE DATABASE solaceassignment;"
 ```bash
 npm run migrate:up
 # Or with explicit DATABASE_URL:
-DATABASE_URL=postgres://postgres:password@localhost:5432/solaceassignment npx drizzle-kit push
+DATABASE_URL=postgres://postgres:password@localhost:5432/miracleassignment npx drizzle-kit push
 ```
 
 4. **Seed the database:**
@@ -89,7 +89,7 @@ curl -X POST http://localhost:3000/api/seed
 Create a `.env.local` file (see `.env.example`):
 
 ```env
-DATABASE_URL=postgres://postgres:password@localhost:5432/solaceassignment
+DATABASE_URL=postgres://postgres:password@localhost:5432/miracleassignment
 NODE_ENV=development
 BASE_URL=http://localhost:3000
 ```
@@ -131,8 +131,8 @@ src/
 │   └── page.tsx              # Home page with search & directory
 │
 ├── components/               # React components
-│   ├── SolaceCtaCard.tsx    # Call-to-action card component
-│   ├── SolaceFooter.tsx     # Footer component
+│   ├── MiracleCtaCard.tsx    # Call-to-action card component
+│   ├── MiracleFooter.tsx     # Footer component
 │   └── ErrorBoundary.tsx    # React error boundary
 │
 ├── lib/                      # Shared utilities
