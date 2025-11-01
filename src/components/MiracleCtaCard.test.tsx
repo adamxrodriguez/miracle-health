@@ -1,11 +1,11 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import MiracleCtaCard from "./MiracleCtaCard";
+import SolaceCtaCard from "./SolaceCtaCard";
 
-describe("MiracleCtaCard", () => {
+describe("SolaceCtaCard", () => {
   it("renders with default props", () => {
-    render(<MiracleCtaCard />);
+    render(<SolaceCtaCard />);
     
     expect(screen.getByText(/WE'RE HERE FOR YOU/i)).toBeInTheDocument();
     expect(screen.getByText(/No Matter What You Need/i)).toBeInTheDocument();

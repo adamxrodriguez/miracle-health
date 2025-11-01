@@ -21,7 +21,7 @@ export type MiracleFooterProps = {
 
 function NavItem({ link }: { link: FooterLink }) {
   const className =
-    "text-sm text-yellow-50/90 hover:text-white transition-colors";
+    "text-sm text-emerald-50/90 hover:text-white transition-colors";
 
   // If label is a JSX element, render it directly without wrapping in Link/a
   if (React.isValidElement(link.label)) {
@@ -96,7 +96,7 @@ export default function MiracleFooter({
   }: SpecialtySectionProps) {
     return (
       <section
-        className={`relative rounded-3xl bg-purple-900 px-6 py-10 text-white sm:px-6 ${className}`}
+        className={`relative rounded-3xl bg-[#173D36] px-6 py-10 text-white sm:px-6 ${className}`}
       >
         {/* top divider */}
         <div className="absolute left-6 right-6 top-0 h-px bg-white/30" />
@@ -113,7 +113,7 @@ export default function MiracleFooter({
             <li key={s.label} className="leading-7">
               <Link
                 href={s.href}
-                className="rounded-md text-left text-yellow-50 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-yellow-300/60"
+                className="rounded-md text-left text-emerald-50 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-300/60"
               >
                 {s.label}
               </Link>
@@ -129,7 +129,7 @@ export default function MiracleFooter({
           {/* Our Mission */}
           <div>
             <h3 className=" font-semibold">Our Mission</h3>
-            <p className="mt-4 max-w-md text-yellow-50/90">
+            <p className="mt-4 max-w-md text-emerald-50/90">
               Miracle&apos;s mission is to empower patients, improve outcomes,
               and restore the promise of the U.S. healthcare system.
             </p>
@@ -141,7 +141,7 @@ export default function MiracleFooter({
           {/* Contact */}
           <div>
             <h3 className=" font-semibold">Contact Us</h3>
-            <ul className="mt-4 space-y-3 text-yellow-50/90">
+            <ul className="mt-4 space-y-3 text-emerald-50/90">
               <li className="flex items-start gap-3">
                 <img
                   src="/Mail_icon.svg"
@@ -165,7 +165,7 @@ export default function MiracleFooter({
                   <a className="hover:text-white" href="tel:2406933281">
                     (240) 693-3281
                   </a>
-                  <p className="text-sm italic text-yellow-100/70">
+                  <p className="text-sm italic text-emerald-100/70">
                     9am to 5pm PT
                   </p>
                 </div>
@@ -186,7 +186,7 @@ export default function MiracleFooter({
           {/* Company */}
           <div>
             <h3 className=" font-semibold">Company</h3>
-            <ul className="mt-4 space-y-3 text-yellow-50/90">
+            <ul className="mt-4 space-y-3 text-emerald-50/90">
               <li>
                 <a className="hover:text-white" href="#">
                   Our Mission
@@ -213,9 +213,9 @@ export default function MiracleFooter({
           {/* Recruiting */}
           <div>
             <h3 className=" font-semibold">Recruiting</h3>
-            <ul className="mt-4 space-y-4 text-yellow-50/90">
+            <ul className="mt-4 space-y-4 text-emerald-50/90">
               <li>
-                <div className="text-yellow-100/80 flex items-center">
+                <div className="text-emerald-100/80 flex items-center">
                   <img
                     src="/Search_icon.png"
                     alt="Search"
@@ -231,7 +231,7 @@ export default function MiracleFooter({
                 </a>
               </li>
               <li>
-                <div className="text-yellow-100/80 flex items-center">
+                <div className="text-emerald-100/80 flex items-center">
                   <img
                     src="/Search_icon.png"
                     alt="Search"
@@ -255,21 +255,21 @@ export default function MiracleFooter({
 
   return (
     <footer
-      className={`relative mt-12 bg-purple-900 text-white ${className}`}
+      className={`relative mt-12 bg-[#173D36] text-white ${className}`}
       aria-label="MIRACLE HEALTH Site footer"
     >
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Brand + contact */}
         <div className="lg:col-span-2">
           <div className="flex items-center gap-3 mb-2">
-            <div className="grid h-12 w-28 place-items-center    shadow-yellow-200/50">
+            <div className="grid h-12 w-28 place-items-center    shadow-emerald-200/50">
               <img
-                src="/Miracle.svg"
+                src="/Solace.svg"
                 alt="Miracle"
                 className="h-5 w-auto"
                 style={{
                   filter:
-                    "brightness(0) saturate(100%) invert(75%) sepia(98%) saturate(7491%) hue-rotate(359deg) brightness(102%) contrast(105%)",
+                    "brightness(100%)   sepia(10%)   brightness(1) contrast(1.2)",
                 }}
               />
             </div>
@@ -279,7 +279,7 @@ export default function MiracleFooter({
         <SpecialtySection />
 
         {/* bottom row */}
-        <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-white/15 pt-6 text-xs text-yellow-100/80 sm:flex-row sm:items-center">
+        <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-white/15 pt-6 text-xs text-emerald-100/80 sm:flex-row sm:items-center">
           <p className="italic">
             © {new Date().getFullYear()} {brandName}. All rights reserved.
           </p>

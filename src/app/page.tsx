@@ -35,17 +35,17 @@ export default function Home() {
       <div
         id="banner"
         className="text-white pt-1"
-        style={{ backgroundColor: "rgb(202, 138, 4)" }}
+        style={{ backgroundColor: "rgb(38, 91, 78)" }}
       >
         <div className="mx-auto max-w-7xl px-2 pb-4 pt-1 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="mt-6 flex flex-col items-center justify-center gap-1 sm:flex-row">
-              <div className="flex items-center gap-2 text-yellow-50">
+              <div className="flex items-center gap-2 text-emerald-100">
                 <span className="text-sm">
                   Miracle Health Providers are covered by your
                 </span>
               </div>
-              <div className="flex items-center gap-1 text-yellow-50">
+              <div className="flex items-center gap-1 text-emerald-100">
                 <img
                   src="/check-mark.svg"
                   alt="check-mark"
@@ -53,7 +53,7 @@ export default function Home() {
                 />
                 <span className="text-sm">Medicare plan!</span>
               </div>
-              <div className="flex items-center gap-2 text-yellow-50">
+              <div className="flex items-center gap-2 text-emerald-100">
                 <a
                   href="https://www.linkedin.com/in/adamrodriguez/"
                   target="_blank"
@@ -78,14 +78,14 @@ export default function Home() {
         {/* Header */}
         <header className="mb-8 flex flex-col items-start gap-6 sm:mb-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-4">
-            <div className="grid h-12 w-28 place-items-center    shadow-yellow-200/50">
+            <div className="grid h-12 w-28 place-items-center    shadow-emerald-200/50">
               <img
-                src="/Miracle.svg"
+                src="/Solace.svg"
                 alt="Miracle"
                 className="h-8 w-auto"
                 style={{
                   filter:
-                    "brightness(0) saturate(100%) invert(75%) sepia(98%) saturate(7491%) hue-rotate(359deg) brightness(102%) contrast(105%)",
+                    "brightness(0) saturate(100%) invert(50%) sepia(10%) saturate(3000%) hue-rotate(120deg) brightness(0.8) contrast(1.2)",
                 }}
               />
             </div>
@@ -118,7 +118,7 @@ export default function Home() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search advocates…"
-                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 pr-10 text-slate-900 placeholder:text-slate-400 shadow-sm outline-none transition focus:border-yellow-600 focus:ring-4 focus:ring-yellow-500"
+                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 pr-10 text-slate-900 placeholder:text-slate-400 shadow-sm outline-none transition focus:border-green-800 focus:ring-4 focus:ring-green-600"
                 aria-label="Search advocates"
                 aria-describedby="search-status"
                 aria-live="polite"
@@ -127,7 +127,7 @@ export default function Home() {
                 <button
                   onClick={clearQuery}
                   type="button"
-                  className="absolute inset-y-0 right-0 mr-2 grid place-items-center rounded-lg px-2 text-slate-500 hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  className="absolute inset-y-0 right-0 mr-2 grid place-items-center rounded-lg px-2 text-slate-500 hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-green-600"
                   aria-label="Clear search"
                 >
                   ×
@@ -175,7 +175,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={clearQuery}
-                className="mt-4 inline-flex items-center rounded-lg bg-yellow-500 px-4 py-2 text-sm font-medium text-black shadow hover:bg-gradient-to-r hover:from-yellow-500 hover:to-purple-600 transition-all duration-100 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2"
+                className="mt-4 inline-flex items-center rounded-lg bg-yellow-500 px-4 py-2 text-sm font-medium text-black shadow hover:bg-gradient-to-r hover:from-yellow-500 hover:to-emerald-600 transition-all duration-100 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2"
                 aria-label="Reset search and show all advocates"
               >
                 Reset search
@@ -233,7 +233,7 @@ function DirectoryTable({ advocates }: { advocates: Advocate[] }) {
             {advocates.map((a, idx) => (
               <tr
                 key={a.id ?? `${a.firstName}-${a.lastName}-${idx}`}
-                className="hover:bg-purple-50/40 focus-within:bg-purple-50/40"
+                className="hover:bg-emerald-50/40 focus-within:bg-emerald-50/40"
                 tabIndex={0}
                 role="row"
                 aria-label={`${a.firstName} ${a.lastName}, ${a.degree} in ${a.city}`}
@@ -247,7 +247,7 @@ function DirectoryTable({ advocates }: { advocates: Advocate[] }) {
                     {(a.specialties || []).map((s, i) => (
                       <span
                         key={`${s}-${i}`}
-                        className="rounded-full border border-purple-200 bg-purple-50 px-2.5 py-1 text-xs font-medium text-purple-800"
+                        className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-800"
                         role="listitem"
                       >
                         {s}
@@ -263,7 +263,7 @@ function DirectoryTable({ advocates }: { advocates: Advocate[] }) {
                 <Td>
                   <a
                     href={`tel:${a.phoneNumber}`}
-                    className="text-yellow-700 underline decoration-yellow-300 underline-offset-2 hover:text-yellow-800 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2 rounded"
+                    className="text-emerald-700 underline decoration-emerald-300 underline-offset-2 hover:text-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2 rounded"
                     aria-label={`Call ${a.firstName} ${a.lastName} at ${a.phoneNumber}`}
                   >
                     {a.phoneNumber}
@@ -309,7 +309,7 @@ function Td({
 function Spinner() {
   return (
     <svg
-      className="h-6 w-6 animate-spin text-yellow-600"
+      className="h-6 w-6 animate-spin text-emerald-600"
       viewBox="0 0 24 24"
       aria-hidden="true"
       aria-label="Loading"

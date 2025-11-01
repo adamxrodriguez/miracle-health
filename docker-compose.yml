@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: miracleassignment
+      POSTGRES_DB: solaceassignment
     volumes:
       - psql_data:/var/lib/postgresql/data
     ports:
