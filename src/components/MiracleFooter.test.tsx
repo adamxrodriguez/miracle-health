@@ -7,8 +7,8 @@ describe("MiracleFooter", () => {
     render(<MiracleFooter />);
 
     expect(screen.getByText(/Find an advocate by specialty/i)).toBeInTheDocument();
-    expect(screen.getByText(/Our Mission/i)).toBeInTheDocument();
-    expect(screen.getByText(/Contact Us/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /Our Mission/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /Contact Us/i })).toBeInTheDocument();
   });
 
   it("renders custom brand name", () => {
