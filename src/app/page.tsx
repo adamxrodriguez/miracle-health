@@ -166,7 +166,7 @@ export default function Home() {
               aria-live="polite"
             >
               <p className="text-base font-medium">
-                No advocates match "{query}".
+                No advocates match &quot;{query}&quot;.
               </p>
               <p className="mt-1 text-sm">
                 Try a different name, city, degree, specialty or years of
