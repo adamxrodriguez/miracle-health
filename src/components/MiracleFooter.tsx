@@ -262,7 +262,7 @@ export default function MiracleFooter({
         {/* Brand + contact */}
         <div className="lg:col-span-2">
           <div className="flex items-center gap-3 mb-2">
-            <div className="grid h-12 w-32 place-items-center    shadow-yellow-200/50">
+            <div className="grid h-12 w-40 place-items-center    shadow-yellow-200/50">
               <img
                 src="/Miracle.svg"
                 alt="Miracle"
