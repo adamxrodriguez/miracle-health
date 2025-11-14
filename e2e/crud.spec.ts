@@ -10,7 +10,7 @@ test.describe("Advocates CRUD Flow", () => {
     await expect(page.getByRole("heading", { name: /Miracle Health Providers/i })).toBeVisible();
     
     // Check that the search input is visible
-    await expect(page.getByLabel("Search advocates")).toBeVisible();
+    await expect(page.getByRole("searchbox", { name: "Search advocates" })).toBeVisible();
     
     // Wait for advocates table to load (check for at least one advocate)
     await page.waitForSelector('table tbody tr', { timeout: 10000 });
@@ -34,7 +34,7 @@ test.describe("Advocates CRUD Flow", () => {
   test("should filter advocates by search query", async ({ page }) => {
     await page.waitForSelector('table tbody tr', { timeout: 10000 });
     
-    const searchInput = page.getByLabel("Search advocates");
+    const searchInput = page.getByRole("searchbox", { name: "Search advocates" });
     await searchInput.fill("Adam");
     
     // Wait for filtering
@@ -53,7 +53,7 @@ test.describe("Advocates CRUD Flow", () => {
   test("should clear search and show all advocates", async ({ page }) => {
     await page.waitForSelector('table tbody tr', { timeout: 10000 });
     
-    const searchInput = page.getByLabel("Search advocates");
+    const searchInput = page.getByRole("searchbox", { name: "Search advocates" });
     await searchInput.fill("Nonexistent");
     
     await page.waitForTimeout(500);
