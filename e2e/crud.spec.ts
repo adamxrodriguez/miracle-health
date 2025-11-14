@@ -15,7 +15,11 @@ test.describe("Advocates CRUD Flow", () => {
     // Wait for advocates table to load (check for at least one advocate)
     await page.waitForSelector('table tbody tr', { timeout: 10000 });
     
-    // Verify table structure
+    // Wait for table to be fully rendered
+    const table = page.locator('table[aria-label="Health care advocates directory"]');
+    await expect(table).toBeVisible();
+    
+    // Verify table structure - check headers using text content in thead
     const tableHeaders = [
       "First Name",
       "Last Name",
@@ -26,8 +30,12 @@ test.describe("Advocates CRUD Flow", () => {
       "Phone",
     ];
     
+    const thead = table.locator('thead');
+    await expect(thead).toBeVisible();
+    
     for (const header of tableHeaders) {
-      await expect(page.getByRole("columnheader", { name: header })).toBeVisible();
+      // Use getByText within thead context for more reliable matching
+      await expect(thead.getByText(header, { exact: true })).toBeVisible();
     }
   });
 
